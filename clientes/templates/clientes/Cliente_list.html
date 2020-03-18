@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}Clientes{% endblock %}
+
+{% block body %}
+
+  <div align="left" class="btn_crear mb-3">
+    <a href="crear" type="button" class="btn btn-primary">Nuevo cliente</a>
+  </div>
+
+  {% for Cliente in object_list %}
+
+  <div class="panel-body">
+    {{ Cliente.Nombre }}
+  </div>
+
+    <form method="POST" action="eliminar/{{Cliente.id}}">
+      {% csrf_token %}
+      <div class="btn-group">
+        <!-- Creamos 3 botones que son ver, Editar y Eliminar, nos sirven para gestionar nuestros registros -->
+        <a href="detalle/{{Cliente.id}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+        <a href="editar/{{Cliente.id}}" title="Actualizar" type="button" class="btn btn-primary">Actualizar</a>
+        <button class="btn btn-danger" onclick="return eliminar();" type="submit">Eliminar</button>
+      </div>
+    </form>
+
+  {% endfor %}
+{% endblock %}
