@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import RedirectView #para usar RedirectView
-from clientes.views import ClienteListado
+from clientes.views import ClienteListado, ClienteCrear, ClienteActualizar,ClienteDetalle,ClienteEliminar
 from servicios.views import ServicioListado, ServiciosCrear
 from empresa.views import EmpresaListado, ColaboradorListado, ColaboradorDetalle, ColaboradorCrear, ColaboradorActualizar, ColaboradorEliminar
 
@@ -25,6 +25,10 @@ urlpatterns = [
     # cuando accedes a la url principal te lleva a la carpeta que especifiques
     path('admin/', admin.site.urls),
     path('clientes/', ClienteListado.as_view(template_name="clientes/clientes_index.html"), name='leer'),
+    path('clientes/crear', ClienteCrear.as_view(template_name="clientes/clientes_crear.html"), name='crear'),
+    path('clientes/editar/<int:pk>', ClienteActualizar.as_view(template_name = "clientes/clientes_actualizar.html"), name='actualizar'),
+    path('clientes/detalle/<int:pk>', ClienteDetalle.as_view(template_name = "clientes/clientes_detalles.html"), name='detalles'),
+    path('clientes/eliminar/<int:pk>', ClienteEliminar.as_view(), name='eliminar'),
     path('servicios/', ServicioListado.as_view(template_name="servicios/servicios_index.html"), name='leer'),
     path('servicios/crear', ServiciosCrear.as_view(template_name = "servicios/servicios_crear.html"), name='crear'),
     path('empresa/', EmpresaListado.as_view(template_name="empresa/empresa_index.html"), name='leer'),

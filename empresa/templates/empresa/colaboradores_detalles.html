@@ -35,13 +35,32 @@
   <p><span class="txt_negrita">CI:</span> <br> {{object.cedula}}</p>
   <p><span class="txt_negrita">Empresa:</span> <br> {{object.Empresa}}</p>
   <p><span class="txt_negrita">Observaciones:</span> <br> {{object.Observaciones}}</p>
-
+  <p><span class="txt_negrita">Servicios realizados:</span> <br> {{object.Servicio}}</p>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th width="35%">Servicio</th>
+          <th>Cliente</th>
+          <th>Fecha</th>    
+        </tr>
+      </thead>
+      <tbody>    
+      <!-- Recorremos los objetos o registros de nuestra tabla y los listamos -->
+      {% if object.servicio_set %}
+      {% for servicio in object.servicio_set.all %}
+        <tr>
+          <td>{{ servicio.tipo_de_servicio }}</td>
+          <td>{{ servicio.cliente }}</td>
+          <td>{{ servicio.fecha_hora }}</td>
+        </tr>
+      {% endfor %}
+      {% endif %}
+      </tbody>
+    </table>
   <a href="../" type="submit" class="btn btn-primary">Volver</a>
-
   <div class="footer">
     <p>Cust - by F5</p>
   </div>
-
   {# JS y jQuery Bootstrap #}
   {% bootstrap_javascript jquery='full' %}
  </body>
