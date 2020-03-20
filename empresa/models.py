@@ -1,7 +1,6 @@
 from django.db import models
 
 # Create your models here.
-
 class Empresa (models.Model):
     #logo= models.ImageField(name=logo)
     rut = models.CharField(max_length=25, default='rut de la empresa')
