@@ -1,6 +1,12 @@
 from django.db import models
 from empresa.models import Empresa
 
+#class Empresa (models.Model):
+    #logo= models.ImageField(name=logo)
+    #rut = models.CharField(max_length=25, default='rut de la empresa')
+    #razon_social = models.CharField(max_length=50, default='razón social de la empresa')
+    #direccion = models.CharField(max_length=200, default='Dirección de la empresa')
+    #telefono = models.CharField(max_length=9, default='Teléfono de la empresa')
 
 class Cliente (models.Model):
     Nombre = models.CharField(max_length=35, default="")

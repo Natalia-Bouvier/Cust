@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block title %}Servicios{% endblock %}
+
+{% block body %}
+    {% for Servicio in Servicios %}
+      <h4>{{Servicio}}</h4>
+    {% endfor %}
+{% endblock %}

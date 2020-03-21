@@ -7,4 +7,3 @@ admin.site.register(Servicio)
 from .models import CategoriaServicio
 admin.site.register(CategoriaServicio)
 
-
