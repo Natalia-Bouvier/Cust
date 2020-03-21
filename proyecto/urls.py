@@ -16,21 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import RedirectView #para usar RedirectView
-from clientes.views import ClienteListado, ClienteCrear, ClienteActualizar,ClienteDetalle,ClienteEliminar
-from servicios.views import ServicioListado, ServiciosCrear
+from clientes.views import ClienteListado
+from servicios.views import servicios
 from empresa.views import EmpresaListado, ColaboradorListado, ColaboradorDetalle, ColaboradorCrear, ColaboradorActualizar, ColaboradorEliminar
-
+from users import views
 urlpatterns = [
+
+    path('', views.welcome),
+    path('register', views.register),
+    path('login', views.login),
+    path('logout', views.logout),
     path('',RedirectView.as_view(url='admin/', permanent=True)),
     # cuando accedes a la url principal te lleva a la carpeta que especifiques
     path('admin/', admin.site.urls),
     path('clientes/', ClienteListado.as_view(template_name="clientes/clientes_index.html"), name='leer'),
-    path('clientes/crear', ClienteCrear.as_view(template_name="clientes/clientes_crear.html"), name='crear'),
-    path('clientes/editar/<int:pk>', ClienteActualizar.as_view(template_name = "clientes/clientes_actualizar.html"), name='actualizar'),
-    path('clientes/detalle/<int:pk>', ClienteDetalle.as_view(template_name = "clientes/clientes_detalles.html"), name='detalles'),
-    path('clientes/eliminar/<int:pk>', ClienteEliminar.as_view(), name='eliminar'),
-    path('servicios/', ServicioListado.as_view(template_name="servicios/servicios_index.html"), name='leer'),
-    path('servicios/crear', ServiciosCrear.as_view(template_name = "servicios/servicios_crear.html"), name='crear'),
+    path('servicios/',servicios),
     path('empresa/', EmpresaListado.as_view(template_name="empresa/empresa_index.html"), name='leer'),
     path('colaboradores/', ColaboradorListado.as_view(template_name="empresa/colaboradores_index.html"), name='leer'),
     # lista de los registros de colaboradores
@@ -40,6 +40,7 @@ urlpatterns = [
     # formulario para crear un colaborador
     path('colaboradores/editar/<int:pk>', ColaboradorActualizar.as_view(template_name = "empresa/colaboradores_actualizar.html"), name='actualizar'),
     path('colaboradores/eliminar/<int:pk>', ColaboradorEliminar.as_view(), name='eliminar'),
+
 ]
 
 #urlpatterns += staticfiles_urlpatterns()
