@@ -1,0 +1,49 @@
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% load static %}
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/agenda.css' %}">
+</head>
+
+<body>
+<!-- Encabezado -->
+<div class="header">
+  <a href="/"><img src="{% static 'images/cust-logo.png' %}"></a>
+  <div class="header-right">
+    <a class="active" href="/">Home</a>
+    <a href="/logout">Cerrar sesión</a> 
+      <a href="#help">{{request.user}}</a>
+  </div>
+<body>
+  <div class="header-center"> 
+    <h1>Agenda</h1>
+  </div>
+</div>
+<p>&nbsp;</p>
+
+<!-- Contenido luego del encabezado-->
+<div class="imagenes">
+<a href="eventos.html">  
+<img src="{% static 'images/calendar.png' %}" class= "imagen-calendario" alt="Calendario">
+</a>
+<a href="reservas.html">
+<img src="{% static 'images/agenda.png' %}" class= "imagen-agenda" alt="Reservas">
+</a>
+</div>
+
+<div class="footer">
+  <p>cust - F5</p>
+</div>
+
+</body>
+</html>

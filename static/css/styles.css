@@ -102,18 +102,19 @@ body {
 }
 
 .footer {
-  /*position: fixed;
-  left: 0;
-  width: 100%;
-  bottom: 0;*/
-  margin-top:6px;
+  margin-top: 6px;
   height: 40px;
   background-color: #999;
   color: white;
   text-align: center;
-
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
 }
 
+.content{
+  margin-bottom: 45px;
+}
 /* Lista de clientes */
 
 #myInput {

@@ -1,10 +1,40 @@
-<h2>Iniciar sesión</h2>
 
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+
+
+
+<!-- Contenido luego del encabezado-->
+<hgroup>
+  <img class="logologin" src="{% static 'images/cust-logo.png' %}">
+  <h3></h3>
+</hgroup>
 <form method="POST">
-    {{ form.as_p }}
     {% csrf_token %}
-    <button type="submit">Login</button>
+    <div class="group">
+        {{form.username}}<span class="highlight"></span><span class="bar"></span>
+        Usuario
+    </div>
+    <div class="group">
+        {{form.password}}<span class="highlight"></span><span class="bar"></span>
+        Contraseña
+        
+    </div>
+    <input type="hidden" name="next" value="{{ request.GET.next  }}">
+    <button class="button buttonBlue" type="submit">Ingrese 
+        <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+    </button>
+    <!--<a href="">¿Olvidó su contraseña?</a>-->
 </form>
 
-<hr />
-<a href="/register">Registrar usuario</a>
+<div class="footer">
+  <p>cust - F5</p>
+</div>
+
+</body>
+</html>
