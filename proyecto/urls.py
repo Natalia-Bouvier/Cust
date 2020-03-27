@@ -32,6 +32,7 @@ urlpatterns = [
     path('logout', views.logout),
     # path('',RedirectView.as_view(url='admin/', permanent=True)),
     # cuando accedes a la url principal te lleva a la carpeta que especifiques
+    path('', home),
     path('admin/', admin.site.urls),
     path('clientes/', ClienteListado.as_view(template_name="clientes/clientes_index.html"), name='leer'),
     path('clientes/crear', ClienteCrear.as_view(template_name="clientes/clientes_crear.html"), name='crear'),

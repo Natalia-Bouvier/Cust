@@ -17,7 +17,7 @@ class ClienteListado(LoginRequiredMixin, ListView):
 class ClienteCrear(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     login_url = '/'
     model = Cliente
-    form = Cliente 
+    form = Cliente
     fields = "__all__"
     success_message = 'Cliente Creado Correctamente'
     success_url = "./"

@@ -24,10 +24,10 @@ class ServicioListado(ListView):
     model = Servicio
 
 class ServiciosCrear(SuccessMessageMixin, CreateView):
-    model = Servicio 
-    form = Servicio 
+    model = Servicio
+    form = Servicio
     fields = "__all__"
-    success_message = 'Registro Creado Correctamente !' 
+    success_message = 'Registro Creado Correctamente !'
     success_url = "./"
     
 class ServiciosActualizar(SuccessMessageMixin, UpdateView):
