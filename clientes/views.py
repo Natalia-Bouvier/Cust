@@ -14,8 +14,8 @@ class ClienteListado(ListView):
 
 class ClienteCrear(SuccessMessageMixin, CreateView):
     model = Cliente
-    form = Cliente # define el formulario con el nombre de la clase 'Cliente'
-    fields = "__all__" # muestra todos los campos de la tabla 'Cliente'
+    form = Cliente
+    fields = "__all__"
     success_message = 'Cliente Creado Correctamente'
     success_url = "./"
 

@@ -79,7 +79,7 @@ body {
 .column {
   float: left;
   width: 33%;
-  padding: 0 10px;
+  padding: 0px 0px 10px 22px;
 }
 
 /* Remove extra left and right margins, due to padding */
@@ -126,3 +126,24 @@ body {
   border: 1px solid #ddd;
   margin-bottom: 12px;
 }
+
+/* CARDS */
+.card {
+
+    width: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    margin-bottom: 20px;
+    cursor: pointer;
+    display: inline-block
+  }
+  .card-group{
+    margin-bottom: 40px;
+    margin-left: 60px;
+  }
+  .card-img-top{
+    width: 30px;
+
+  }

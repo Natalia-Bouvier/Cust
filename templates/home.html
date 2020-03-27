@@ -1,0 +1,104 @@
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<!-- Encabezado -->
+<div class="header">
+  <a href="/"><img src="{% static 'images/cust-logo.png' %}"></a>
+  <div class="header-right">
+    <a class="active" href="/">Home</a>
+    <a href="#logout">Cerrar sesión</a>
+  </div>
+  <div class="header-center">
+    <h1>Principal</h1>
+  </div>
+</div>
+<p>&nbsp;</p>
+
+<!-- Contenido luego del encabezado-->
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <h3><a class="active" href="clientes/">Clientes</a></h3>
+      <p>Lista de clientes</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3><a class="active" href="servicios/">Servicios</a></h3>
+      <p>Servicios realizados</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3><a class="active" href="agenda.html">Agenda</a></h3>
+      <p>Eventos y Reservas</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3><a class="active" href="empresa/">Empresa</a></h3>
+      <p>Opciones de la empresa</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3><a class="active" href="colaboradores/">Colaboradores</a></h3>
+      <p>Colaboradores de la empresa</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3><a class="active" href="tareas.html">Tareas</a></h3>
+      <p>Tareas a realizar</p>
+    </div>
+  </div>
+
+
+</div>
+
+<script>
+  function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+  </script>
+
+
+<div class="footer">
+  <p>cust - F5</p>
+</div>
+
+</body>
+</html>
