@@ -1,0 +1,14 @@
+.imagen-empleado{
+    width: 200px;
+    margin-right: 40px;
+}
+.imagen-proveedor{
+    width: 200px;
+    margin-left: 40px;
+}
+.imagenes{
+    text-align: center;
+}
+p{
+    text-align: auto;
+}

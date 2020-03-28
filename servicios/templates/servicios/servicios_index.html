@@ -1,19 +1,43 @@
-{% extends "layout.html" %}
-{% block title %}Servicios{% endblock %}
-<head>
-
-{% load bootstrap4 %}
-
-{% bootstrap_css %}
-
 {% load static %}
 
-{% load widget_tweaks %}
+  <head>
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    {% load bootstrap4 %}
 
-</head>
+    {% bootstrap_css %}
 
+    {% load static %}
+
+    {% load widget_tweaks %}
+
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/tareas.css' %}">
+  </head>
+<body>
+<!-- Encabezado -->
+<div class="header">
+    <a href="/"><img src="{% static 'images/cust-logo.png' %}"></a>
+    <div class="header-right">
+      <a class="active" href="/">Home</a>
+      <a href="/logout">Cerrar sesión</a> 
+        <a href="#help">{{request.user}}</a>
+    </div>
+  <body>
+    <div class="header-center"> 
+      <h1>Servicios</h1>
+    </div>
+  </div>
+<p>&nbsp;</p>
+<div>
+  <a class="btn-crear" href="crear" class="buttonround" title="Agregar un servicio"><img src="{% static 'images/agregar tarea.png' %}" ></a>
+  <div>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar...">
+  </div>
+</div>
+
+</div>
 <body>
 {% block body %}
 <table class="table table-striped table-hover">
@@ -39,13 +63,12 @@
         <!-- Usaremos un formulario que realizará la tarea de eliminar un registro desde la tabla HTML -->
         <form method="POST" action="eliminar/{{Servicio.id}}">
           {% csrf_token %}
+
           <div class="btn-group">
 
             <!-- Creamos 3 botones que son ver, Editar y Eliminar, nos sirven para gestionar nuestros registros -->
-            <a href="editar/{{Servicio.id}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
-            <button class="btn btn-danger" onclick="return eliminar();" type="submit">
-              Eliminar
-            </button>
+            <a href="editar/{{Servicio.id}}" title="Editar servicio"><img src="{% static 'images/Edit-Task-512.png' %}" class="card-img-top" alt=""></a>
+            <a onclick="return eliminar();" type="submit"  title="Eliminar servicio"><img src="{% static 'images/deletetask.png'%}" class="card-img-top" alt=""></a> 
           </div>
         </form>
 
@@ -56,9 +79,7 @@
   </tbody>
 </table>
 
-<div class="btn_crear mb-3">
-  <a href="crear" type="button" class="btn btn-primary">Crear</a>
-</div>
+
 
 {% endblock %}
 

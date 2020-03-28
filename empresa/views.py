@@ -1,3 +1,4 @@
+from django.shortcuts import render, redirect
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -7,6 +8,8 @@ from django.urls import reverse
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django import forms
+from django.contrib.auth import login as do_login
+from users.forms import FormaRegistro, AdminFormaCreacionUsuario
 
 class EmpresaListado(ListView):
     model = Empresa
@@ -37,6 +40,25 @@ class ColaboradorEliminar(SuccessMessageMixin, DeleteView):
     success_message = 'Eliminación realizada correctamente'
     fields = "__all__"
     success_url = "../"
+
+def registro_empresa(request):
+    # Creamos el formulario de autenticación vacío
+    form = AdminFormaCreacionUsuario()
+    if request.method == "POST":
+        # Añadimos los datos recibidos al formulario
+        form = AdminFormaCreacionUsuario(data=request.POST)
+        # Si el formulario es válido...
+        if form.is_valid():
+
+            # Creamos la nueva cuenta de usuario
+            user = form.save()
+
+            # Si el usuario se crea correctamente
+            if user is not None:
+                # Hacemos el login manualmente
+                do_login(request, user)
+                # Y le redireccionamos a la portada
+                return redirect('/')
 
 #Redireccionamos a la página principal luego de eliminar un registro o Colaborador
 # def get_success_url(self):

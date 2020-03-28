@@ -1,26 +1,30 @@
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% load static %}
+{% load widget_tweaks %}
+
 <!DOCTYPE html>
+
 <html>
+
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
-<link href="css/general.css" rel="stylesheet">
-<link href="css/eventos.css" rel="stylesheet">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Calendar</title>
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
-<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/eventos.css' %}">
 </head>
+
 <body>
 <!-- Encabezado -->
 <div class="header">
-  <a href="index.html"><img src="images/cust-logo.png"> Alejandra</a>
-  
+  <a href="/"><img src="{% static 'images/cust-logo.png' %}"></a>
   <div class="header-right">
-    <a class="active" href="index.html">Home</a>
-    <a href="#logout">Cerrar sesión</a>
-    <a href="#help">Ayuda</a>
+    <a class="active" href="/">Home</a>
+    <a href="/logout">Cerrar sesión</a> 
+      <a href="#help">{{request.user}}</a>
   </div>
+<body>
   <div class="header-center"> 
     <h1>Agenda</h1>
     <h5>Eventos</h5>
@@ -28,9 +32,9 @@
 </div>
 <p>&nbsp;</p>
 <div>
-  <button class="buttonround" title="Agregar un reserva"><img src="images/agregar tarea.png" ></button>
-  <button class="buttonround" title="Eliminar reserva"><img src="images/deletetask.png"></button>
-  <button class="buttonround" title="Editar reserva"><img src="images/Edit-Task-512.png"></button>
+  <button class="buttonround" title="Agregar un evento"><img src="{% static 'images/agregar tarea.png' %}" ></button>
+  <button class="buttonround" title="Eliminar evento"><img src="{% static 'images/deletetask.png' %}"></button>
+  <button class="buttonround" title="Editar evento"><img src="{% static 'images/Edit-Task-512.png' %}"></button>
 </div>
 
 <!-- Contenido luego del encabezado-->

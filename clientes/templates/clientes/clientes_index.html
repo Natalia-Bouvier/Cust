@@ -12,45 +12,46 @@
 
   {% load widget_tweaks %}
 
-  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+ 
 
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/clientes.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/general.css' %}">
 </head>
 
 <body>
 
 {% block body %}
 
-  <div class="btn_crear mb3" padding="3px;">
-    <a href="crear" type="button" class="btn btn-primary">Nuevo cliente</a>
-  </div>
-<div class="panel panel-default">
-    {% for Cliente in object_list %}
-      <div class="panel-body">
-        {{ Cliente.Nombre }}
+
+  
+    
+    <div>
+      <a class="btn-crear" href="crear"class="buttonround" title="Nuevo cliente"><img src="{% static 'images/user_add_21977.png'%}" class="card-img-top" alt=""></a>
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar...">
+    </div>
+
+    <div class="card-group">
+    {% for cliente in object_list %}
+     
+  
+      <div class="card"> 
+        <div class="card-body">
+          <a href="detalle/{{cliente.id}}"> 
+            <h3 class="card-title">{{cliente.Nombre}}</h3>
+          <p class="card-text"></p></a>
+          <div class="btn-accion">
+            <a href="editar/{{cliente.id}}"class="buttonround" title="Editar cliente"><img src="{% static 'images/user_edit_21973.ico'%}" class="card-img-top" alt=""></a>
+            <a onclick="return eliminar();" type="submit" class="buttonround" title="Eliminar cliente"><img src="{% static 'images/user_remove_21966.ico'%}" class="card-img-top" alt=""></a> 
+          </div>
+        </div>
       </div>
-          <!-- formulario para eliminar un registro desde el HTML -->
-          <form method="POST" action="eliminar/{{Cliente.id}}">
-            {% csrf_token %}
-            <div class="btn-group">
-              <!-- botones ver, actualizar, eliminar -->
-              <a href="detalle/{{Cliente.id}}" title="Ver" type="button" class="btn btn-success">Ver </a>
-              <a href="editar/{{Cliente.id}}" title="Actualizar" type="button" class="btn btn-primary">Actualizar</a>
-              <button class="btn btn-danger" onclick="return eliminar();" type="submit">Eliminar</button>
-            </div>
-    {% endfor %}
-</div>
+      {%endfor%}  
+    </div>
 
   <div class="footer">
     <p>Cust - by F5</p>
   </div>
-
-  {% if messages %}
-    <ul class="messages list-group mb-3">
-      {% for message in messages %}
-      <li{% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
 
   <script type="text/javascript">
     function eliminar() {

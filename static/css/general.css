@@ -64,7 +64,7 @@ h1{
   .header-right {
     float: none;
   }
-
+  
 }
 
 * {
@@ -79,7 +79,7 @@ body {
 .column {
   float: left;
   width: 33%;
-  padding: 0px 0px 10px 22px;
+  padding: 0 10px;
 }
 
 /* Remove extra left and right margins, due to padding */
@@ -101,75 +101,31 @@ body {
   }
 }
 
+
+/* Footer */
 .footer {
-  margin-top: 6px;
-  height: 40px;
-  background-color: #999;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #888;
   color: white;
   text-align: center;
-  position: fixed;
-  width: 100%;
-  bottom: 0px;
+ 
 }
 
-.content{
-  margin-bottom: 45px;
-}
 /* Lista de clientes */
 
 #myInput {
   background-image: url('../images/searchicon.png'); /* icono */
   background-position: 10px 12px; /* posición del icono */
   background-repeat: no-repeat; /* no repetir*/
-  width: 100%;
+  width: 100%; 
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
   margin-bottom: 12px;
 }
 
-/* CARDS */
-.card {
-  min-width: 350px;
-  max-width: 350px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
-  margin: 20px 10px !important;
-  cursor: pointer;
-  display: inline-block;
-  float: left;
-  height: 175px;
-}
 
-  .card-group{
-    margin-bottom: 40px;
-    margin-left: 60px;
-    left:10%;width:80%;position:absolute
-  }
-  .card-img-top{
-    width: 30px;
 
-  }
-.card .btn-accion{
-  position: absolute;
-  bottom: 10px;
-  right: 5px;
-  margin-right: 5px;
-}
-
-.card .btn-accion a{
-  margin: 0px 2px;
-}
-
-.btn-crear img{
-  margin: 10px;
-  width: 50px;
-}
-
-.messages{
-  position: absolute;
-  bottom: 26px;
-  font-weight: bold;
-}

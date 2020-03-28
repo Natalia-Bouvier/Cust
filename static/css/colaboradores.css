@@ -1,0 +1,38 @@
+.card {
+  
+    width: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    margin-bottom: 20px;
+    cursor: pointer;
+    display: inline-block
+  }
+  .card-group{
+    margin-bottom: 40px;
+    margin-left: 60px;
+  }
+  .card-img-top{
+    width: 30px;
+    
+  }
+  
+  /* Rounded Buttons */
+  .buttonround {
+    font-size: 24px;
+    background-color: #ddd;
+    border: none;
+    color: black;
+    padding: 7px 11px;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 22px;
+    display: inline-block;
+    
+  }
+  .buttonround img{
+    width: 20px;
+  }

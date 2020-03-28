@@ -19,13 +19,19 @@
     <div class="header">
       <a href="/"><img src="{% static 'images/cust-logo.png' %}"></a>
       <div class="header-right">
-        <a href="/">Home</a>.
-        <a href="#logout">Cerrar sesión</a>
+        <a class="active" href="/">Home</a>
+        <a href="/logout">Cerrar sesión</a> 
+        <a href="#help">{{request.user}}</a>
       </div>
       <div class="header-center">
         <h1>{% block title %} {% endblock %}</h1>
+        <div> 
+          <p>&nbsp;</p>
+        </div>
       </div>
+      
     </div>
+    
 
     {% block body %}{% endblock %}
 
@@ -36,10 +42,6 @@
         {% endfor %}
       </ul>
     {% endif %}
-
-    <div class="footer">
-      <p>Cust - by F5</p>
-    </div>
 
 
     {% bootstrap_javascript jquery='full' %}

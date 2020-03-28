@@ -18,15 +18,18 @@ from django.urls import path
 from django.views.generic import RedirectView #para usar RedirectView
 from clientes.views import ClienteListado, ClienteCrear, ClienteDetalle, ClienteActualizar, ClienteEliminar
 from servicios.views import ServiciosCrear, ServicioListado, ServiciosActualizar
-from empresa.views import EmpresaListado, ColaboradorListado, ColaboradorDetalle, ColaboradorCrear, ColaboradorActualizar, ColaboradorEliminar
+from empresa.views import EmpresaListado, ColaboradorListado, ColaboradorDetalle, ColaboradorCrear, ColaboradorActualizar, ColaboradorEliminar,registro_empresa
 from users import views
-from proyecto.views import home
-from proyecto.views import agenda
+from proyecto.views import home, agenda, tareas, eventos, reservas
 
 urlpatterns = [
     #path('', views.welcome),
     path('', home),
+    path('registro_empresa',registro_empresa),
     path('agenda/',agenda),
+    path('tareas/',tareas),
+    path('agenda/eventos/',eventos),
+    path('agenda/reservas/',reservas),
     path('register', views.register),
     path('login', views.login),
     path('logout', views.logout),

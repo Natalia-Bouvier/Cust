@@ -12,8 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/agenda.css' %}">
-
+<link rel="stylesheet" type="text/css" href="{% static 'css/eventos.css' %}">
 </head>
 
 <body>
@@ -28,19 +27,22 @@
 <body>
   <div class="header-center"> 
     <h1>Agenda</h1>
+    <h5>Reservas</h5>
   </div>
 </div>
 <p>&nbsp;</p>
+<div>
+  <button class="buttonround" title="Agregar un reserva"><img src="{% static 'images/agregar tarea.png' %}" ></button>
+  <button class="buttonround" title="Eliminar reserva"><img src="{% static 'images/deletetask.png' %}"></button>
+  <button class="buttonround" title="Editar reserva"><img src="{% static 'images/Edit-Task-512.png' %}"></button>
+</div>
 
 <!-- Contenido luego del encabezado-->
-<div class="imagenes">
-<a href="/agenda/eventos/">  
-<img src="{% static 'images/calendar.png' %}" class= "imagen-calendario" alt="Calendario">
-</a>
-<a href="/agenda/reservas/">  
-<img src="{% static 'images/agenda.png' %}" class= "imagen-agenda" alt="Reservas">
-</a>
+<div>
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar...">
 </div>
+
+<img src="{% static 'images/reservas.png' %}" alt="">
 
 <div class="footer">
   <p>cust - F5</p>
@@ -48,3 +50,4 @@
 
 </body>
 </html>
+
