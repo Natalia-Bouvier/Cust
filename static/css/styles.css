@@ -145,8 +145,8 @@ body {
 
   .card-group{
     margin-bottom: 40px;
-    margin-left: 60px;
-    left:10%;width:80%;position:absolute
+    left: 10%;
+    position: absolute;
   }
   .card-img-top{
     width: 30px;

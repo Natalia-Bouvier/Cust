@@ -23,15 +23,13 @@
         <h1>Empresa</h1>
       </div>
     </div>
-
-    {% for Empresa in object_list %}
-      <ul class="list-group">
-        <li class="list-group-item">Razón Social: {{ Empresa.razon_social }}</li>
-        <li class="list-group-item">RUT: {{ Empresa.rut }}</li>
-        <li class="list-group-item">Dirección: {{ Empresa.direccion }}</li>
-        <li class="list-group-item">Teléfono: {{ Empresa.telefono }}</li>
-      </ul>
-    {% endfor %}
+    <h4>Datos de Empresa</h4>
+    <p><b>Nombre:</b> {{object.Nombre}}</p>
+    <p><b>RUT:</b> {{object.rut}}</p>
+    <p><b>Razón Social:</b> {{object.razon_social}}</p>
+    <p><b>Direccion:</b> {{object.direccion}} </p>
+    <p><b>Teléfono:</b> {{object.telefono}}</p>
+    <p><b>Email:</b> {{object.correo}}</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <div class="footer">

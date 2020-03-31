@@ -1,0 +1,71 @@
+{% load static %}
+
+  <head>
+
+    {% load bootstrap4 %}
+
+    {% bootstrap_css %}
+
+    {% load static %}
+
+    {% load widget_tweaks %}
+
+    <meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/servicios.css' %}">
+  </head>
+<body>
+<!-- Encabezado -->
+<div class="header">
+    <a href="/"><img src="{% static 'images/cust-logo.png' %}"></a>
+    <div class="header-right">
+      <a class="active" href="/">Home</a>
+      <a href="/logout">Cerrar sesión</a> 
+        <a href="#help">{{request.user}}</a>
+    </div>
+  <body>
+    <div class="header-center"> 
+      <h1>Servicios</h1>
+    </div>
+  </div>
+<p>&nbsp;</p>
+<div>
+  <a class="btn-crear" href="crear" class="buttonround" title="Agregar un servicio"><img src="{% static 'images/agregar tarea.png' %}" ></a>
+  <div>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar...">
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    <!-- token de seguridad para crear un registro -->
+    <div class="form-group">
+      <label for="tipo_de_servicio" class="txt_negrita">Nombre del servicio</label>
+      {{ form.tipo_de_servicio|add_class:"form-control" }}
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Aceptar</button>
+    <a href="../" type="submit" class="btn btn-primary">Cancelar</a>
+
+  </form>
+
+<div class="footer">
+  <p>Cust - by F5</p>
+</div>
+
+  {% if messages %}
+    <ul class="messages list-group mb-3">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {# JS y jQuery Bootstrap #}
+  {% bootstrap_javascript jquery='full' %}
+
+</body>

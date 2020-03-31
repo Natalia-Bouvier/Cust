@@ -17,42 +17,43 @@ from django.contrib import admin
 from django.urls import path
 from django.views.generic import RedirectView #para usar RedirectView
 from clientes.views import ClienteListado, ClienteCrear, ClienteDetalle, ClienteActualizar, ClienteEliminar
-from servicios.views import ServiciosCrear, ServicioListado, ServiciosActualizar
-from empresa.views import EmpresaListado, ColaboradorListado, ColaboradorDetalle, ColaboradorCrear, ColaboradorActualizar, ColaboradorEliminar,registro_empresa
+from servicios.views import ServiciosCrear, ServicioListado, ServiciosActualizar, TipoServicioCrear, TipoServicioListado, CategoriadeserviciosEliminar
+from empresa.views import EmpresaDetalle, ColaboradorListado, ColaboradorDetalle, ColaboradorActualizar, ColaboradorEliminar, registro_empresa, crear
 from users import views
 from proyecto.views import home, agenda, tareas, eventos, reservas
 
 urlpatterns = [
     #path('', views.welcome),
     path('', home),
-    path('registro_empresa',registro_empresa),
+    path('registro_empresa/',registro_empresa),
     path('agenda/',agenda),
     path('tareas/',tareas),
     path('agenda/eventos/',eventos),
     path('agenda/reservas/',reservas),
-    path('register', views.register),
-    path('login', views.login),
-    path('logout', views.logout),
+    path('register/', views.register),
+    path('login/', views.login),
+    path('logout/', views.logout),
     # path('',RedirectView.as_view(url='admin/', permanent=True)),
     # cuando accedes a la url principal te lleva a la carpeta que especifiques
     path('', home),
     path('admin/', admin.site.urls),
+    path('servicios/categoriaservicios/crear/', TipoServicioCrear.as_view(template_name="servicios/categoria_servicios.html"), name='crear'),
+    path('servicios/categoriaservicios/', TipoServicioListado.as_view(template_name="servicios/categoria_servicios_list.html"), name='leer'),
+    path('servicios/categoriadeservicios/eliminar/<int:pk>', CategoriadeserviciosEliminar.as_view(), name='eliminar'),
     path('clientes/', ClienteListado.as_view(template_name="clientes/clientes_index.html"), name='leer'),
-    path('clientes/crear', ClienteCrear.as_view(template_name="clientes/clientes_crear.html"), name='crear'),
-    path('clientes/editar/<int:pk>', ClienteActualizar.as_view(template_name = "clientes/clientes_actualizar.html"), name='actualizar'),
-    path('clientes/detalle/<int:pk>', ClienteDetalle.as_view(template_name = "clientes/clientes_detalles.html"), name='detalles'),
+    path('clientes/crear/', ClienteCrear.as_view(template_name="clientes/clientes_crear.html"), name='crear'),
+    path('clientes/editar/<int:pk>', ClienteActualizar.as_view(template_name="clientes/clientes_actualizar.html"), name='actualizar'),
+    path('clientes/detalle/<int:pk>', ClienteDetalle.as_view(template_name="clientes/clientes_detalles.html"), name='detalles'),
     path('clientes/eliminar/<int:pk>', ClienteEliminar.as_view(), name='eliminar'),
     path('servicios/', ServicioListado.as_view(template_name="servicios/servicios_index.html"), name='leer'),
     path('servicios/crear', ServiciosCrear.as_view(template_name = "servicios/servicios_crear.html"), name='crear'),
-    path('servicios/editar/<int:pk>', ServiciosActualizar.as_view(template_name = "servicios/servicios_actualizar.html"), name='actualizar'),
-    path('empresa/', EmpresaListado.as_view(template_name="empresa/empresa_index.html"), name='leer'),
+    path('servicios/editar/<int:pk>', ServiciosActualizar.as_view(template_name="servicios/servicios_actualizar.html"), name='actualizar'),
+    path('empresa/<int:pk>', EmpresaDetalle.as_view(template_name="empresa/empresa_index.html"), name='leer'),
     path('colaboradores/', ColaboradorListado.as_view(template_name="empresa/colaboradores_index.html"), name='leer'),
-    # lista de los registros de colaboradores
-    path('colaboradores/detalle/<int:pk>',ColaboradorDetalle.as_view(template_name = "empresa/colaboradores_detalles.html"), name='detalles'),
-    # página que muestra los datos de un colaborador
-    path('users/register', ColaboradorCrear.as_view(template_name = "users\register.html"), name='crear'),
-    # formulario para crear un colaborador
-    path('colaboradores/editar/<int:pk>', ColaboradorActualizar.as_view(template_name = "empresa/colaboradores_actualizar.html"), name='actualizar'),
+    path('colaboradores/crear/', crear),
+    path('colaboradores/detalle/<int:pk>', ColaboradorDetalle.as_view(template_name="empresa/colaboradores_detalles.html"), name='detalles'),
+    #path('users/register/', ColaboradorCrear.as_view(template_name="users\register.html"), name='crear'),
+    path('colaboradores/editar/<int:pk>', ColaboradorActualizar.as_view(template_name="empresa/colaboradores_actualizar.html"), name='actualizar'),
     path('colaboradores/eliminar/<int:pk>', ColaboradorEliminar.as_view(), name='eliminar'),
 ]
 #urlpatterns += staticfiles_urlpatterns()

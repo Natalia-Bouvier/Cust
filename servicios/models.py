@@ -1,6 +1,6 @@
 from django.db import models
 from  empresa.models import Empresa
-from  empresa.models import Colaborador
+from  users.models import Usuario
 from  clientes.models import Cliente
 
 # Create your models here.
@@ -14,7 +14,7 @@ class CategoriaServicio (models.Model):
 
 class Servicio (models.Model):
     fecha_hora = models.DateField(auto_now=True)
-    colaborador = models.ForeignKey(Colaborador, on_delete=models.DO_NOTHING, null=True)
+    colaborador = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING, null=True)
     cliente = models.ForeignKey(Cliente, on_delete=models.DO_NOTHING, null=True)
     tipo_de_servicio = models.ForeignKey(CategoriaServicio, on_delete=models.DO_NOTHING, null=True)
 

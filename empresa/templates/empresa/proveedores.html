@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<link href="css/general.css" rel="stylesheet">
+<link href="css/proveedores.css" rel="stylesheet">
+
+</head>
+<body>
+<!-- Encabezado -->
+<div class="header">
+  <a href="index.html"><img src="images/cust-logo.png"> Alejandra</a>
+
+  <div class="header-right">
+    <a class="active" href="index.html">Home</a>
+    <a href="#logout">Cerrar sesión</a>
+    <a href="#help">Ayuda</a>
+  </div>
+  <div class="header-center"> 
+    <h1>Empresa</h1>
+    <h5>Proveedores</h5>
+  </div>
+</div>
+<p>&nbsp;</p>
+
+<div class="botones">
+  <button class="buttonround" title="Agregar proveedor"><img src="images/user_add_21977.png"> </button>
+  <button class="buttonround" title="Eliminar proveedor"><img src="images/user_remove_21966.ico"> </button>
+  <button class="buttonround" title="Editar proveedor"><img src="images/user_edit_21973.ico"></button>
+</div>
+
+<!-- Contenido luego del encabezado-->
+<div class="row">
+
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar...">
+  <div class="card-group">
+    <div class="card">
+      <img src="images/empresa.png" class="card-img-top" alt="">     
+      <div class="card-body">
+        <h3 class="card-title">Redken</h3>
+        <p class="card-text"></p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="images/empresa.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h3 class="card-title">L'Óreal Uruguay</h3>
+        <p class="card-text"></p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="images/empresa.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h3 class="card-title">Alfa Juste</h3>
+        <p class="card-text"></p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="images/empresa.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h3 class="card-title">Disto Ltda.</h3>
+        <p class="card-text"></p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="images/empresa.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h3 class="card-title">Belimport SA</h3>
+        <p class="card-text"></p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="images/empresa.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h3 class="card-title">Dip Importaciones</h3>
+        <p class="card-text"></p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="images/empresa.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h3 class="card-title">Distribuidora Larys</h3>
+        <p class="card-text"></p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="images/empresa.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h3 class="card-title">Las Margaritas Lda.</h3>
+        <p class="card-text"></p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="images/empresa.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h3 class="card-title">Importadora Del Mar</h3>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  
+  
+  </div>
+  
+  <script>
+  function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+  </script>
+  
+  <div class="footer">
+    <p>cust - F5</p>
+  </div>
+  
+  </body>
+  </html>
