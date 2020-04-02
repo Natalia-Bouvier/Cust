@@ -53,6 +53,8 @@ def login(request):
                 # Hacemos el login manualmente
                 do_login(request, user)
                 # Y le redireccionamos a la portada
+                if user.Empresa is None: 
+                    return redirect('/register/empresa')
                 if request.POST.get('next'):
                     return redirect(request.POST.get('next'))
                 else:

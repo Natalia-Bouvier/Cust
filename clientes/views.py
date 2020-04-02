@@ -14,7 +14,7 @@ class ClienteListado(LoginRequiredMixin, ListView):
     login_url = '/'
     model = Cliente
     def get_queryset(self):
-        lista = Cliente.objects.filter(Empresa=self.request.user.Empresa)
+        lista = Cliente.objects.filter(Empresa=self.request.user.Empresa).filter(active=True)
         lista = lista.order_by('Nombre')
         return lista
 
@@ -44,10 +44,14 @@ class ClienteActualizar(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     success_message = 'Actualización realizada correctamente'
     success_url = "../"
 
-class ClienteEliminar(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
+class ClienteEliminar(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     login_url = '/'
     model = Cliente
     form = Cliente
+    fields = []
     success_message = 'Eliminación realizada correctamente'
-    fields = '__all__'
     success_url = "../"
+    
+    def form_valid(self, form):
+        form.instance.active = False
+        return super().form_valid(form)

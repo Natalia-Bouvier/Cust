@@ -41,8 +41,13 @@
             <h3 class="card-title">{{cliente.Nombre}}</h3>
           <p class="card-text"></p></a>
           <div class="btn-accion">
+            <form method="POST" action="eliminar/{{cliente.id}}">
+              {% csrf_token %}
+              <div class="btn-group">
             <a href="editar/{{cliente.id}}"class="buttonround" title="Editar cliente"><img src="{% static 'images/user_edit_21973.ico'%}" class="card-img-top" alt=""></a>
-            <a onclick="return eliminar();" type="submit" class="buttonround" title="Eliminar cliente"><img src="{% static 'images/user_remove_21966.ico'%}" class="card-img-top" alt=""></a> 
+            <button type="submit" class="btn btn-primary">Eliminar</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

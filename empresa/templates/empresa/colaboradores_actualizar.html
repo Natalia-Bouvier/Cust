@@ -18,6 +18,7 @@
   {% block body %}
 
   <form method="post" enctype="multipart/form-data">
+    <h4>Datos de {{form.Nombre}}</h4>
     {% csrf_token %}
     <!-- token de seguridad para crear un registro -->
     <div class="form-group">

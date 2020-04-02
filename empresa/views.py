@@ -20,7 +20,7 @@ class ColaboradorListado(LoginRequiredMixin, ListView):
     model = Usuario
 
     def get_queryset(self):
-        lista = Usuario.objects.filter(Empresa=self.request.user.Empresa)
+        lista = Usuario.objects.filter(Empresa=self.request.user.Empresa).filter(active=True)
         lista = lista.order_by('Nombre')
         return lista
 
@@ -51,14 +51,17 @@ class ColaboradorActualizar(LoginRequiredMixin, SuccessMessageMixin, UpdateView)
     success_message = 'Actualización realizada correctamente'
     success_url = "../"
 
-class ColaboradorEliminar(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
+class ColaboradorEliminar(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     login_url = '/'
     model = Usuario
     form = Usuario
-    success_message = 'Eliminación realizada correctamente'
-    fields = "__all__"
+    fields = []
+    success_message = 'Se elimino correctamente el colaborador.'
     success_url = "../"
-
+   
+    def form_valid(self, form):
+        form.instance.active = False
+        return super().form_valid(form)
 
 
 def crear(request):

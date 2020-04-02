@@ -16,6 +16,7 @@ class Cliente (models.Model):
     cedula = models.CharField(max_length=15,null=True)
     Empresa = models.ForeignKey(Empresa, on_delete=models.DO_NOTHING, null=True)
     observaciones= models.CharField(max_length=1000, default="")
+    active = models.BooleanField(('activo'), default=True)
 
     def __str__(self):
        return self.Nombre

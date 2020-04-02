@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block title %}Actualizar cliente{% endblock %}
+<head>
+
+  {% load bootstrap4 %}
+
+  {% bootstrap_css %}
+
+  {% load static %}
+
+  {% load widget_tweaks %}
+
+</head>
+
+<body>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+  {% block body %}
+  <h4>Datos de {{object.Nombre}}</h4>
+
+  <p><b>Nombre:</b> {{object.Nombre}}</p>
+  <p><b>Fecha de nacimiento:</b> {{object.fecha_nacimiento}}</p>
+  <p><b>Dirección:</b> {{object.direccion}}</p>
+  <p><b>Sexo:</b> {{object.sexo}} </p>
+  <p><b>Teléfono:</b> {{object.telefono}}</p>
+  <p><b>Email:</b> {{object.correo}}</p>
+  <p><b>CI:</b> {{object.cedula}}</p>
+  <p><b>Empresa:</b> {{object.Empresa}}</p>
+  <p><b>Observaciones:</b> {{object.Observaciones}}</p>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}    
+    <button type="submit" class="btn btn-primary">Aceptar</button>
+    <a href="../" type="submit" class="btn btn-primary">Volver</a>
+
+  </form>
+
+  {% if messages %}
+    <ul class="messages list-group mb-3">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+{% endblock %}
+
+{# JS y jQuery Bootstrap #}
+{% bootstrap_javascript jquery='full' %}
+</body>
