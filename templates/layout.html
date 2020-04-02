@@ -13,23 +13,19 @@
     <meta charset="utf-8">
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-
+    {% block extra_head_css %}{% endblock %}
   </head>
   <body>
     <div class="header">
       <a href="/"><img src="{% static 'images/cust-logo.png' %}"></a>
+      <div class="header-center">
+        <h1>{% block title %} {% endblock %}</h1>
+      </div>
       <div class="header-right">
         <a class="active" href="/">Home</a>
         <a href="/logout">Cerrar sesión</a> 
         <a href="#help">{{request.user}}</a>
-      </div>
-      <div class="header-center">
-        <h1>{% block title %} {% endblock %}</h1>
-        <div> 
-          <p>&nbsp;</p>
-        </div>
-      </div>
-      
+      </div>      
     </div>
     
 

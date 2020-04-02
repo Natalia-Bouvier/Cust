@@ -13,10 +13,9 @@
   {% load widget_tweaks %}
 
  
-
-  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/clientes.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/general.css' %}">
+  {% block extra_head_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/clientes.css' %}">
+  {% endblock %}
 </head>
 
 <body>
@@ -44,8 +43,12 @@
             <form method="POST" action="eliminar/{{cliente.id}}">
               {% csrf_token %}
               <div class="btn-group">
-            <a href="editar/{{cliente.id}}"class="buttonround" title="Editar cliente"><img src="{% static 'images/user_edit_21973.ico'%}" class="card-img-top" alt=""></a>
-            <button type="submit" class="btn btn-primary">Eliminar</button>
+            <a href="editar/{{cliente.id}}" title="Editar cliente">
+              <img src="{% static 'images/user_edit_21973.ico'%}" class="card-img-top" alt="">
+            </a>
+            <button type="submit" class="btn btn-eliminar">
+              <img src="{% static 'images/user_remove_21966.ico'%}" class="card-img-top" alt="">
+            </button>
               </div>
             </form>
           </div>

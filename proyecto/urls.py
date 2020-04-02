@@ -25,7 +25,6 @@ from proyecto.views import home, agenda, tareas, eventos, reservas
 urlpatterns = [
     #path('', views.welcome),
     path('', home),
-    path('registro_empresa/',registro_empresa),
     path('agenda/',agenda),
     path('tareas/',tareas),
     path('agenda/eventos/',eventos),

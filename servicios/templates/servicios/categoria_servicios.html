@@ -1,33 +1,25 @@
-{% load static %}
+{% extends "layout.html" %}
+{% block title %}Servicios{% endblock %}
 
-  <head>
+<head>
 
-    {% load bootstrap4 %}
+  {% load bootstrap4 %}
 
-    {% bootstrap_css %}
+  {% bootstrap_css %}
 
-    {% load static %}
+  {% load static %}
 
-    {% load widget_tweaks %}
+  {% load widget_tweaks %}
 
-    <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/servicios.css' %}">
-  </head>
-<body>
-<!-- Encabezado -->
-<div class="header">
-    <a href="/"><img src="{% static 'images/cust-logo.png' %}"></a>
-    <div class="header-right">
-      <a class="active" href="/">Home</a>
-      <a href="/logout">Cerrar sesión</a> 
-        <a href="#help">{{request.user}}</a>
-    </div>
+ 
+  {% block extra_head_css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/servicios.css' %}">
+  {% endblock %}
+
   <body>
-    <div class="header-center"> 
-      <h1>Servicios</h1>
-    </div>
-  </div>
+
+    {% block body %}
+
 <p>&nbsp;</p>
 <div>
   <a class="btn-crear" href="crear" class="buttonround" title="Agregar un servicio"><img src="{% static 'images/agregar tarea.png' %}" ></a>
@@ -64,7 +56,7 @@
       {% endfor %}
     </ul>
   {% endif %}
-
+  {% endblock %}
   {# JS y jQuery Bootstrap #}
   {% bootstrap_javascript jquery='full' %}
 
